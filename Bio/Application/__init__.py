@@ -235,6 +235,7 @@ class AbstractCommandline(object):
                                  "way the AbstractCommandline class works"
                                  % name)
 
+
             # Beware of binding-versus-assignment confusion issues
             def getter(name):
                 return lambda x: x._get_parameter(name)
@@ -465,6 +466,7 @@ class AbstractCommandline(object):
         any stdout and stderr strings captured as attributes of the exception
         object, since they may be useful for diagnosing what went wrong.
         """
+        print('hello')
         if not stdout:
             stdout_arg = open(os.devnull, "w")
         elif isinstance(stdout, basestring):
@@ -480,7 +482,7 @@ class AbstractCommandline(object):
             else:
                 stderr_arg = open(stderr, "w")
         else:
-            stderr_arg = subprocess.PIPE
+            stderr_arg = PIPE
 
         # We may not need to supply any piped input, but we setup the
         # standard input pipe anyway as a work around for a python
