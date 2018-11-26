@@ -482,7 +482,7 @@ class AbstractCommandline(object):
             else:
                 stderr_arg = open(stderr, "w")
         else:
-            stderr_arg = PIPE
+            stderr_arg = subprocess.PIPE
 
         # We may not need to supply any piped input, but we setup the
         # standard input pipe anyway as a work around for a python
